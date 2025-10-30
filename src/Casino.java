@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class Casino {
+    
+    Scanner scanner = new Scanner(System.in);
+
+    Banca banca;
+    RuletaFrancesa ruleta;
+    Apostador[] apostadores;
+    
+    
+
+    public Casino(int numeroJugadores) {
+
+        banca = new Banca();
+        ruleta = new RuletaFrancesa();
+        apostadores = new Apostador[numeroJugadores];
+        AgregarJugadores();
+     
+        }
+    
+    
+
+
+
+
+    public void JugarRuletaFrancesa(String modoJuego) {
+        
+        for (int i = 0; i < apostadores.length; i++) {
+        
+            ruleta.Apostar(modoJuego, apostadores[i]);
+
+        }
+    }
+
+    public void AgregarJugadores() {
+        
+          for (int i = 0; i < apostadores.length; i++) {
+        
+     
+        System.out.println("Nombre para el apostador " + (i+1));
+        String nombreApostador = scanner.nextLine();
+
+        System.out.println("Numero a apostar para el apostador " + nombreApostador);
+        int numeroApuesta = scanner.nextInt();
+            
+        apostadores[i] = new Apostador(nombreApostador, banca, numeroApuesta);
+
+    }
+
+
+ 
+
+}
+
+}
