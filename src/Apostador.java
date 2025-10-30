@@ -15,6 +15,8 @@ public class Apostador {
         this.numeroApuesta = numeroApuesta;
     }
 
+    
+
     public String getNombre() {
         return nombre;
     }

@@ -5,7 +5,7 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        int NumeroApostadores = 1;
+        int NumeroApostadores = 2;
         String modoDeJuego = "martingala"; //numeroConcreto || pares || martingala
         Apostador[] apostadores = new Apostador[NumeroApostadores];
 
