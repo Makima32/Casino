@@ -16,10 +16,12 @@ public class RuletaFrancesa {
 
     }
 
-    public void Apostar(String modoJuego, Apostador apostador) {
+    public void Apostar(String modoJuego, Apostador[] apostador) {
 
         SacarNumeroRuleta();
 
+        for (int i = 0; i < apostador.length; i++) {
+            
         // Si es 0 todos pierden
 
         if (numeroRuleta == 0) {
@@ -31,19 +33,21 @@ public class RuletaFrancesa {
         //Modo numero concreto
         if (modoJuego.toLowerCase().equals("numeroconcreto")) {
 
-            ApuestaNumeroConcreto(apostador);
+            ApuestaNumeroConcreto(apostador[i]);
         }
       
         //Modo pares
         if (modoJuego.toLowerCase().equals("pares")) {
 
-            ApuestaPares(apostador);
+            ApuestaPares(apostador[i]);
 
         }
         // Modo martingala
         if (modoJuego.toLowerCase().equals("martingala")) {
 
-            ApuestaMartingala(apostador);
+            ApuestaMartingala(apostador[i]);
+
+        }
 
         }
     }
@@ -54,7 +58,7 @@ public class RuletaFrancesa {
 
             apostador.sumarSaldo(360);
 
-            System.out.println("Jugador " + apostador.getNombre() + " ha ganado 360$ para su saldo");
+            System.out.println("Jugador " + apostador.getNombre() + " ha ganado 360$ para su saldo y ahora tiene " + apostador.getSaldo());
 
         } else {
 
@@ -67,15 +71,16 @@ public class RuletaFrancesa {
     public void ApuestaPares(Apostador apostador) {
 
         if (numeroRuleta % 2 == 0 & apostador.getNumeroApuesta() % 2 == 0
-                || numeroRuleta % 2 != 0 & numeroRuleta % 2 != 0) {
-
-            System.out.println("Ganador de pares");
+                || numeroRuleta % 2 != 0 & apostador.getNumeroApuesta() % 2 != 0) {
 
             apostador.sumarSaldo(20);
 
+            System.out.println("Jugador" + apostador.getNombre() +  "ha ganado 20$ para su saldo y ahora tiene " + apostador.getSaldo());
+
+
         } else {
 
-            System.out.println("Perdiste pares ");
+            System.out.println("Jugador " + apostador.getNombre() + " ha perdido");
         }
 
     }
@@ -93,9 +98,10 @@ public class RuletaFrancesa {
 
                 if (numeroRuleta == apostador.getNumeroApuesta()) {
 
-                    System.out.println("El apostador " + apostador.getNombre() + " ha ganado  360$ y deja el juego ");
-
                     apostador.sumarSaldo(360);
+
+                    System.out.println("El apostador " + apostador.getNombre()  + " ha ganado  360$ y deja el juego, ahora tiene " + apostador.getSaldo());
+
 
                     return;
 
@@ -104,7 +110,7 @@ public class RuletaFrancesa {
                 if (apostador.getSaldo() < 0) {
 
                     bucle = false;
-                    System.out.println("El apostador " + apostador.getNombre() + " se quedo sin dinero");
+                    System.out.println("El apostador " + apostador.getNombre() + " se quedo sin dinero y con una deuda de " +apostador.getSaldo());
                 }
 
                 System.out.println(

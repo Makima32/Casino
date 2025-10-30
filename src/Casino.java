@@ -25,12 +25,9 @@ public class Casino {
 
 
     public void JugarRuletaFrancesa(String modoJuego, Apostador[] apostadores) {
-        
-        for (int i = 0; i < apostadores.length; i++) {
-        
-            ruleta.Apostar(modoJuego, apostadores[i]);
+                
+            ruleta.Apostar(modoJuego, apostadores);
 
-        }
     }
 
     //  public void AgregarJugadores() {

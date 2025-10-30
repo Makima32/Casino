@@ -28,7 +28,7 @@ public class Banca {
 
         if (this.saldo < 0) {
 
-            System.out.println("La banca se ha quedado sin dinero parando juego");
+            System.out.println("La banca se ha quedado sin dinero, Fin del juego");
             System.exit(1);
         }
     }
