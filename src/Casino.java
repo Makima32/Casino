@@ -6,7 +6,7 @@ public class Casino {
 
     Banca banca;
     RuletaFrancesa ruleta;
-    Apostador[] apostadores;
+    // Apostador[] apostadores;
     
     
 
@@ -14,8 +14,8 @@ public class Casino {
 
         banca = new Banca();
         ruleta = new RuletaFrancesa();
-        apostadores = new Apostador[numeroJugadores];
-        AgregarJugadores();
+        // apostadores = new Apostador[numeroJugadores];
+        // AgregarJugadores();
      
         }
     
@@ -24,7 +24,7 @@ public class Casino {
 
 
 
-    public void JugarRuletaFrancesa(String modoJuego) {
+    public void JugarRuletaFrancesa(String modoJuego, Apostador[] apostadores) {
         
         for (int i = 0; i < apostadores.length; i++) {
         
@@ -33,24 +33,23 @@ public class Casino {
         }
     }
 
-    public void AgregarJugadores() {
+    //  public void AgregarJugadores() {
         
-          for (int i = 0; i < apostadores.length; i++) {
+    //       for (int i = 0; i < apostadores.length; i++) {
         
      
-        System.out.println("Nombre para el apostador " + (i+1));
-        String nombreApostador = scanner.nextLine();
+    //     System.out.println("Nombre para el apostador " + (i+1));
+    //     String nombreApostador = scanner.nextLine();
 
-        System.out.println("Numero a apostar para el apostador " + nombreApostador);
-        int numeroApuesta = scanner.nextInt();
+    //     System.out.println("Numero a apostar para el apostador " + nombreApostador);
+    //     int numeroApuesta = scanner.nextInt();
             
-        apostadores[i] = new Apostador(nombreApostador, banca, numeroApuesta);
+    //     apostadores[i] = new Apostador(nombreApostador, banca, numeroApuesta);
 
-    }
+    // }
 
 
- 
-
-}
+    
 
 }
+
