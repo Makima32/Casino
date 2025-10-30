@@ -1,21 +1,36 @@
-public class Apostador {
+public class Apostador implements Runnable{
 
     private String nombre;
     private int saldo;
     private int numeroApuesta;
-    private int cantidadAApostar;
     private boolean gambling;
     Banca banca;
+    Casino casino;
+    String modoJuego;
 
-    public Apostador(String nombre, Banca banca, int numeroApuesta) {
+    public Apostador(String nombre, Banca banca, int numeroApuesta, Casino casino, String modoJuego) {
         this.nombre = nombre;
-        this.cantidadAApostar = 10;
         this.saldo = 1000;
         this.banca = banca;
         this.numeroApuesta = numeroApuesta;
+        this.casino = casino;
+        this.modoJuego = modoJuego;
+        this.gambling = true;
     }
 
+    @Override
+    public void run() {
+    while (gambling) {
     
+    casino.ruleta.esperarTiempo();
+    casino.JugarRuletaFrancesa(modoJuego, this);   
+    } 
+    
+    
+
+        
+        
+    }
 
     public String getNombre() {
         return nombre;
@@ -41,14 +56,7 @@ public class Apostador {
         this.numeroApuesta = numeroApuesta;
     }
 
-    public int getCantidadAApostar() {
-        return cantidadAApostar;
-    }
-
-    public void setCantidadAApostar(int cantidadAApostar) {
-        this.cantidadAApostar = cantidadAApostar;
-    }
-
+  
     public boolean isGambling() {
         return gambling;
     }
@@ -68,6 +76,7 @@ public class Apostador {
 
         saldo -= saldoParaRestar;
         banca.SumarSaldo(saldoParaRestar);
+
     }
 
 }

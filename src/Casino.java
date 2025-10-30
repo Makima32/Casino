@@ -10,7 +10,7 @@ public class Casino {
     
     
 
-    public Casino(int numeroJugadores) {
+    public Casino() {
 
         banca = new Banca();
         ruleta = new RuletaFrancesa();
@@ -24,7 +24,7 @@ public class Casino {
 
 
 
-    public void JugarRuletaFrancesa(String modoJuego, Apostador[] apostadores) {
+    public void JugarRuletaFrancesa(String modoJuego, Apostador apostadores) {
                 
             ruleta.Apostar(modoJuego, apostadores);
 

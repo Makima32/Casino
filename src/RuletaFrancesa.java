@@ -1,7 +1,7 @@
 public class RuletaFrancesa {
 
     int numeroRuleta;
-
+    int tiempo;
     public int SacarNumeroRuleta() {
 
         numeroRuleta = 3;
@@ -10,17 +10,21 @@ public class RuletaFrancesa {
         // (int)(Math.random() * 36);
     }
 
-    public int esperarTiempo() {
+    public  void esperarTiempo() {
 
-        return (int) (Math.random() * 3000);
-
+    try {
+        
+        Thread.currentThread().sleep((int)(Math.random() * 3000));
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
     }
 
-    public void Apostar(String modoJuego, Apostador[] apostador) {
+    public void Apostar(String modoJuego, Apostador apostador) {
 
         SacarNumeroRuleta();
 
-        for (int i = 0; i < apostador.length; i++) {
+       
             
         // Si es 0 todos pierden
 
@@ -33,27 +37,28 @@ public class RuletaFrancesa {
         //Modo numero concreto
         if (modoJuego.toLowerCase().equals("numeroconcreto")) {
 
-            ApuestaNumeroConcreto(apostador[i]);
+            ApuestaNumeroConcreto(apostador);
         }
       
         //Modo pares
         if (modoJuego.toLowerCase().equals("pares")) {
 
-            ApuestaPares(apostador[i]);
+            ApuestaPares(apostador);
 
         }
         // Modo martingala
         if (modoJuego.toLowerCase().equals("martingala")) {
 
-            ApuestaMartingala(apostador[i]);
+            ApuestaMartingala(apostador);
 
-        }
+        
 
         }
     }
 
     public void ApuestaNumeroConcreto(Apostador apostador) {
 
+        apostador.restarSaldo(10);
         if (apostador.getNumeroApuesta() == numeroRuleta) {
 
             apostador.sumarSaldo(360);
@@ -69,6 +74,8 @@ public class RuletaFrancesa {
     }
 
     public void ApuestaPares(Apostador apostador) {
+
+       apostador.restarSaldo(10);
 
         if (numeroRuleta % 2 == 0 & apostador.getNumeroApuesta() % 2 == 0
                 || numeroRuleta % 2 != 0 & apostador.getNumeroApuesta() % 2 != 0) {
@@ -93,7 +100,7 @@ public class RuletaFrancesa {
 
             while (bucle) {
 
-                apostador.restarSaldo(cantidadApostar);
+                apostador.restarSaldo(cantidadApostar); 
                 cantidadApostar = cantidadApostar * 2;
 
                 if (numeroRuleta == apostador.getNumeroApuesta()) {
