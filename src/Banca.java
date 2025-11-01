@@ -16,13 +16,13 @@ public class Banca {
         this.saldo = saldo;
     }
 
-    public void SumarSaldo(int saldo) {
+    public synchronized void SumarSaldo(int saldo) {
 
         this.saldo += saldo;
 
     }
 
-    public void RestarSaldo(int saldo) {
+    public synchronized void RestarSaldo(int saldo) {
 
         this.saldo -= saldo;
 

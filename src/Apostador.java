@@ -1,4 +1,4 @@
-public class Apostador implements Runnable{
+public class Apostador implements Runnable {
 
     private String nombre;
     private int saldo;
@@ -20,16 +20,14 @@ public class Apostador implements Runnable{
 
     @Override
     public void run() {
-    while (gambling) {
-    
-    casino.ruleta.esperarTiempo();
-    casino.JugarRuletaFrancesa(modoJuego, this);   
-    } 
-    
-    
 
-        
-        
+        while (gambling) {
+
+            casino.ruleta.CrupierTira(3000);
+            
+            casino.JugarRuletaFrancesa(modoJuego, this);
+        }
+
     }
 
     public String getNombre() {
@@ -56,7 +54,6 @@ public class Apostador implements Runnable{
         this.numeroApuesta = numeroApuesta;
     }
 
-  
     public boolean isGambling() {
         return gambling;
     }
