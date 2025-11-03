@@ -8,10 +8,10 @@ public class Apostador implements Runnable {
     Casino casino;
     String modoJuego;
 
-    public Apostador(String nombre, Banca banca, int numeroApuesta, Casino casino, String modoJuego) {
+    public Apostador(String nombre, int numeroApuesta, Casino casino, String modoJuego) {
         this.nombre = nombre;
         this.saldo = 1000;
-        this.banca = banca;
+        this.banca = casino.banca;
         this.numeroApuesta = numeroApuesta;
         this.casino = casino;
         this.modoJuego = modoJuego;
@@ -65,7 +65,7 @@ public class Apostador implements Runnable {
     public void sumarSaldo(int saldoParaSumar) {
 
         saldo += saldoParaSumar;
-
+        
         banca.RestarSaldo(saldoParaSumar);
     }
 
