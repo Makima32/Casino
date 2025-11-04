@@ -8,6 +8,13 @@ public class Apostador implements Runnable {
     Casino casino;
     String modoJuego;
 
+    /**
+     * 
+     * @param nombre        Nombre apostador
+     * @param numeroApuesta Numero por el cual apostara el jugador
+     * @param casino        Casino donde apostara
+     * @param modoJuego     Modo de juego a jugar
+     */
     public Apostador(String nombre, int numeroApuesta, Casino casino, String modoJuego) {
         this.nombre = nombre;
         this.saldo = 1000;
@@ -18,13 +25,16 @@ public class Apostador implements Runnable {
         this.gambling = true;
     }
 
+    /**
+     * @return ejecuta un hilo y comienza a apostar el jugador
+     */
     @Override
     public void run() {
 
         while (gambling) {
 
             casino.ruleta.CrupierTira(3000);
-            
+
             casino.JugarRuletaFrancesa(modoJuego, this);
         }
 
@@ -62,13 +72,23 @@ public class Apostador implements Runnable {
         this.gambling = gambling;
     }
 
+    /**
+     * 
+     * @param saldoParaSumar
+     * @return Suma el saldo al usuario y le resta el correspondiente a la banca
+     */
     public void sumarSaldo(int saldoParaSumar) {
 
         saldo += saldoParaSumar;
-        
+
         banca.RestarSaldo(saldoParaSumar);
     }
 
+    /**
+     * 
+     * @param saldoParaRestar
+     * @return Resta el saldo al usuario y le suma el correspondiente a la banca
+     */
     public void restarSaldo(int saldoParaRestar) {
 
         saldo -= saldoParaRestar;

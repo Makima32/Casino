@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class App {
 
+
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
@@ -14,7 +15,7 @@ public class App {
         Thread[] hilos = new Thread[NumeroApostadores];
 
         Casino casino = new Casino();
-        
+
         // Comprobar que el modo de juego sea el valido
         if (!((modoDeJuego.equals("numeroconcreto")) || (modoDeJuego.equals("pares"))
                 || (modoDeJuego.equals("martingala")))) {
@@ -34,7 +35,7 @@ public class App {
                 System.out.println("Numero a apostar para el apostador " + nombreApostador);
                 numeroApuesta = scanner.nextInt();
                 if (numeroApuesta > 36) {
-                    
+
                     System.out.println("Elige un numero entre 1 y 36");
                     break;
                 }

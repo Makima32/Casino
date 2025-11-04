@@ -2,10 +2,8 @@ public class Banca {
 
     private int saldo;
 
-    
-
     public Banca() {
-        
+
         this.saldo = 50000;
     }
 
@@ -17,12 +15,22 @@ public class Banca {
         this.saldo = saldo;
     }
 
+    /**
+     * 
+     * @param saldo
+     * @return suma saldo a la banca
+     */
     public synchronized void SumarSaldo(int saldo) {
 
         this.saldo += saldo;
 
     }
 
+    /**
+     * 
+     * @param saldo
+     * @return resta saldo a la banca
+     */
     public synchronized void RestarSaldo(int saldo) {
 
         this.saldo -= saldo;
