@@ -1,18 +1,19 @@
-## Getting Started
+# 🎰 Proyecto: Casino - Ruleta Francesa Multijugador
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este proyecto simula un **casino de ruleta francesa** en Java, donde varios jugadores (apostadores) participan simultáneamente en distintas modalidades de juego.  
+Se ha implementado el uso de **hilos (`Runnable`)** para simular las apuestas concurrentes de varios jugadores a la vez.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## Descripción del proyecto
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Cada jugador (`Apostador`) apuesta en un **modo de juego** determinado:
+-  **Número concreto** → gana si acierta exactamente el número de la ruleta.
+-  **Pares e impares** → gana si elige la paridad correcta.
+-  **Martingala** → sistema progresivo que duplica la apuesta tras cada pérdida hasta ganar.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+La **banca** (`Banca`) gestiona el dinero total del casino, y el **casino** (`Casino`) coordina el juego utilizando la **ruleta francesa** (`RuletaFrancesa`).
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
