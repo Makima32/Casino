@@ -72,9 +72,9 @@ public class RuletaFrancesa {
 
             if (numeroRuleta == 0) {
 
-                System.out.println("El numero de la ruleta es 0 todos los jugadores descalificados");
+                System.out.println("El numero de la ruleta es 0 gana la banca");
 
-                System.exit(1);
+               apostador.restarSaldo(10);
 
             }
 
